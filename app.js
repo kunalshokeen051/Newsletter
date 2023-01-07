@@ -10,13 +10,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 client.setConfig({
-  apiKey: "2033d78cbb1a378f8a45269ec69d07d0-us13",
-  server: "us13",
+  apiKey: "{enter_api_key_here}",       //enter api key here
+  server: "us13",     // mailchimp indian server code
 })
 
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/public/signup.html");
+  res.sendFile(__dirname + "/public/signup.html");     
 });
 
 app.post("/", function (req, res) {
@@ -42,7 +42,7 @@ app.post("/", function (req, res) {
   
   const jsonData = JSON.stringify(data);
   
-  const url = "https://us13.api.mailchimp.com/3.0/lists/0fdab12bf0";
+  const url = "https://us13.api.mailchimp.com/3.0/lists/{audience_id_here}";     //enter audience id here
   const options = {
     method: "POST",
     auth: "kunalshokeen:2033d78cbb1a378f8a45269ec69d07d0-us13"
@@ -67,19 +67,10 @@ app.post("/", function (req, res) {
 
   request.write(jsonData);
   request.end();
-  
-
-  
+   
 });
 
 app.listen(3000, function () {
   console.log("server is running at port 3000");
 });
-
-
-
-// MAILCHIMP API KEY ---->   2033d78cbb1a378f8a45269ec69d07d0-us13
-// audience-id------>  0fdab12bf0
-
-
 
