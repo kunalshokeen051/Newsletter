@@ -45,7 +45,7 @@ app.post("/", function (req, res) {
   const url = "https://us13.api.mailchimp.com/3.0/lists/{audience_id_here}";     //enter audience id here
   const options = {
     method: "POST",
-    auth: "kunalshokeen:2033d78cbb1a378f8a45269ec69d07d0-us13"
+    auth: "{userName}:{api_key}"  //add username and api-key here
   };
   
   const request = https.request(url, options, function (response) {
